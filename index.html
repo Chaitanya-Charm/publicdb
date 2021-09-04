@@ -1,0 +1,150 @@
+<html>
+	<!--This HTML page Form is used for validating the details of an applicant for opening an account in any bank-->
+	<head>
+		<title>Registration Form</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<style>
+			td {padding:12px;}
+			td.verify {color:red;}
+			#submitbutton {background-color:#4CAF50;color:white;padding:12px;text-align:center;display:inline-block;font-size:16px}
+			body {background-image:url("formbgimage.jpeg"); background-repeat:no-repeat; background-attachment:fixed; background-size:100% 100%; }
+		</style>
+		<script src="formaction.js"></script>
+	</head>
+	
+	<!--All the fields are verified when onblur event occured on that fields-->
+	<!--All the id names ending with verify are used to display the messages upon validation of that specific field -->
+	<!--The input types used in this form are:text,radio,drop-down list,number,email,date,file,checkbox -->
+	<!-- Inline and Internal styles are used.External JavaScript is used for validation.The external javascript file name is "formaction.js"-->
+	<!-- The class=verify used to style the error messages obtained upon validation-->
+	
+	<body>
+		<h1 style="text-align:center;">BANK ACCOUNT REGISTRATION FORM</h1>
+		<form>
+			<table align=center id="t01">
+				<tr>
+					<td><label for="fname">FullName:</label></td>
+					<td><input type="text" name="fname" id="fname"  onblur="fnameverify()"  placeholder="Upto 50 characters(min 5 characters)"></td>
+					<td id="fnameverify" class="verify"></td>
+				</tr>
+				<tr>
+					<td><label for="sname">ShortName:</label></td>
+					<td><input type="text" name="sname" id="sname" placeholder="In 10 characters" onblur="snameverify()" ></td>
+					<td id="snameverify" class="verify"></td>
+				</tr>
+				<tr>
+					<td><label for="phno">Phone Number:</label></td>
+					<td><input type="number" name="phno" id="phno"  onblur="phnoverify()" ></td>
+					<td id="phnoverify" class="verify"></td>
+				</tr>
+				<tr>
+					<td><label for="emailid">Email Id:</label></td>
+					<td><input type="email" name="emailid" id="emailid"  onblur="emailidverify()" </td>
+					<td id="emailidverify" class="verify"></td>
+				</tr>
+				<tr>
+					<td><label for="dob">Date Of Birth:</label></td>
+					<td><input type="date" name="dob" id="dob" onblur="dobverify()" ></td>
+					<td id="dobverify" class="verify"></td>
+				</tr>
+				<tr>
+					<td>Marital Status:</td>
+					<td><input type="radio" name="maritstatus" value="single" checked>Single
+						<input type="radio" name="maritstatus" value="married">Married
+					</td>
+				</tr>
+				<tr>
+					<td>Gender:</td>
+					<td><input type="radio" name="gender" value="male" checked>Male
+						<input type="radio" name="gender" value="female">Female
+					</td>
+				</tr>
+				<tr>
+					<td>Occupation:</td>
+					<td>
+						<select id="occupation" name="occupation">
+							<option value="student">Student</option>
+							<option value="service">Service</option>
+							<option value="selfemployed">Self-employed</option>
+							<option value="profession">Profession</option>
+							<option value="business">Business</option>
+							<option value="agriculture">Agriculture</option>
+							<option value="labour">Labour</option>
+							<option value="other">Other</option>
+							<option value="none">None</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Nationality:</td>
+					<td><input type="radio" name="nation" onclick="fun1()" id="indian" value="indian" checked>Indian
+						<input type="radio" name="nation" onclick="fun2()" value="nonindian">NonIndian
+					</td>
+				</tr>
+				<tr>
+					<td>Nationality ID Card:</td>
+					<td><input type="text" name="idcardno" id="idcardno" onblur="idcardnoverify()" disabled></td>
+					<td id="idcardnoverify" class="verify"></td>
+				</tr>
+				<tr>
+					<td>Passport Details:</td>
+				</tr>
+				<tr>
+					<td>Passport Number:</td>
+					<td>Date of Issue:</td>
+					<td>Date of Expiry:</td>
+					<td>Issue Office:</td>
+					<td>Issue Authority:</td>
+				</tr>
+				<tr>
+					<td><input type="number" name="passno" id="passno" class="verifypass" disabled></td>
+					<td><input type="date" name="passissuedate" id="passissuedate" class="verifypass" disabled></td>
+					<td><input type="date" name="passexpdate" id="passexpdate" class="verifypass" disabled></td>
+					<td><input type="text" name="passissueofice" id="passissueofice" class="verifypass" disabled></td>
+					<td><input type="text" name="passissueauth" id="passissueauth" class="verifypass" disabled></td>
+				</tr>
+				<tr>
+					<td>PAN Number:</td>
+					<td><input type="text" name="pancardno" id="pancardno" onblur="pancardnoverify()" ></td>
+					<td id="pancardnoverify" class="verify"></td>
+				</tr>
+				<tr>
+					<td><label for="income">Annual Income:</label></td>
+					<td><input type="number" name="income" id="income" onblur="incomeverify()" ></td>
+					<td id="incomeverify" class="verify"></td>
+				</tr>
+				<tr>
+					<td><label for="address">Permanent Address:</label></td>
+					<td><textarea name="address" id="address" rows="3" onblur="addressverify()" ></textarea></td>
+					<td id="addressverify" class="verify"></td>
+				</tr>
+				<tr>
+					<td><label for="pin">PIN Number:</label></td>
+					<td><input type="number" name="pin" id="pin" onblur="pinverify()" ></td>
+					<td id="pinverify" class="verify"></td>
+				</tr>
+				<tr>
+					<td>Please select and submit any proof of identity</td>
+					<td>
+						<select id="proof" name="proof">
+							<option value="passport">Passport</option>
+							<option value="drivingid">Driving License</option>
+							<option value="panid">PAN Card</option>
+							<option value="voterid">Voter Card</option>
+						</select>
+					</td>
+					<td><input type="file" id="file" onblur="fileverify()"</td>
+					<td id="fileverify" class="verify"></td>
+				</tr>
+			</table>
+		</form>
+		<input type="checkbox" name="tandc" checked disabled>I declare that the information given above is true and correct to the best of my knowledge and belief.<br>I hereby authorize the bank to verify the details given in the Form,either directly or through their authorized agents 
+		<br><br>
+		<span style="color:rgb(0,0,255);">Signature:</span><input type="file" id="sign" onblur="signverify()"><p id="signverify" style="color:red;"></p>
+		<p><strong style="color:red;">NOTE:</strong>All the fields are mandatory to fill for successful submission of the form</p>
+		<center>
+			<button onclick="submitform()" id="submitbutton">Submit</button>
+		</center>
+	</body>
+</html>
+				
